@@ -9,14 +9,14 @@ final notesprovider = ChangeNotifierProvider<Notifier>((ref) {
 class NotesList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final counter = watch(notesprovider);
+    final noteswatcher = watch(notesprovider);
     return Expanded(
       child: ListView.builder(
         itemBuilder: (context, int index) {
-          print(counter.Notes[index]);
-          return Text(counter.Notes[index]);
+          print(noteswatcher.Notes[index]);
+          return Text(noteswatcher.Notes[index]);
         },
-        itemCount: counter.Notes.length,
+        itemCount: noteswatcher.Notes.length,
       ),
     );
   }
